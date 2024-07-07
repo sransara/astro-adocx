@@ -7,6 +7,7 @@
     "type": "git",
     "url": "git+https://github.com/sransara/astro-adocx.git"
   },
+  "license": "MIT",
   "author": {
     "name": "sransara",
     "email": "hi@sransara.com",

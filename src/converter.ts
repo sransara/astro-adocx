@@ -1,13 +1,6 @@
 import type { AbstractNode, Asciidoctor, Html5Converter } from 'asciidoctor';
 import { UnsupportedNode, type Template } from './types';
-
-const imports = import.meta.glob('./templates/*.ts', { eager: true });
-export const builtinTemplates = Object.fromEntries(
-  Object.entries(imports).map(([key, value]) => [
-    key.replace('./templates/', '').replace('.ts', ''),
-    value as Template,
-  ]),
-);
+import { builtinTemplates } from './templates';
 
 class Converter {
   baseConverter: Html5Converter;

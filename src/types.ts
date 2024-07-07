@@ -1,6 +1,8 @@
 import type {
-  AbstractNode,
+  AbstractNode as AdocAbstractNode,
+  Block as AdocBlock,
   Document as AdocDocument,
+  Inline as AdocInline,
   Asciidoctor,
   Extensions,
   ProcessorOptions,
@@ -8,7 +10,7 @@ import type {
 
 export const UnsupportedNode: unique symbol = Symbol('UnsupportedNode');
 
-export type Template<N = AbstractNode> = {
+export type Template<N = AdocBlock | AdocInline | AdocDocument | AdocAbstractNode> = {
   convert: (node: N, opts?: any) => string | typeof UnsupportedNode;
 };
 
