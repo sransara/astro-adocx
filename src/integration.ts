@@ -1,16 +1,16 @@
 import type { Asciidoctor, ProcessorOptions } from 'asciidoctor';
 import asciidoctor from 'asciidoctor';
 import type { AstroIntegration } from 'astro';
-import { register as converterRegisterHandle } from './converter';
-import { register as postprocessorLayoutRegisterHandle } from './extensions/postprocessorLayout';
+import { register as converterRegisterHandle } from './converter.js';
+import { register as postprocessorLayoutRegisterHandle } from './extensions/postprocessorLayout.js';
 import {
   compileAstro,
   type CompileAstroResult,
-} from 'astro/dist/vite-plugin-astro/compile';
-import subSpecialchars from './patches/sub_specialchars';
-import type { AdocOptions, AstroAdocxOptions } from './types';
-import { getOutline } from './utils/outline';
-import { decodeSpecialChars } from './utils/string';
+} from 'astro/dist/vite-plugin-astro/compile.js';
+import subSpecialchars from './patches/sub_specialchars.js';
+import type { AdocOptions, AstroAdocxOptions } from './types.js';
+import { getOutline } from './utils/outline.js';
+import { decodeSpecialChars } from './utils/string.js';
 
 const adocxExtension = '.adoc';
 

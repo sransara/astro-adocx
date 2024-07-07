@@ -2,9 +2,9 @@
 // - https://github.com/asciidoctor/asciidoctor-backends/blob/master/erb/html5/block_image.html.erb
 
 import type { Block, Inline } from 'asciidoctor';
-import { UnsupportedNode, type Template } from '../types';
-import { atag } from '../utils/asx';
-import { convertImageNode } from './inline_image';
+import { UnsupportedNode, type Template } from '../types.js';
+import { atag } from '../utils/asx.js';
+import { convertImageNode } from './inline_image.js';
 
 export const convert: Template<Block>['convert'] = (node: Block, opts?: any) => {
   const target = node.getAttribute('target');

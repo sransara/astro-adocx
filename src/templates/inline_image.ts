@@ -2,9 +2,9 @@
 // - https://github.com/asciidoctor/asciidoctor-backends/blob/master/erb/html5/inline_image.html.erb
 
 import type { Inline } from 'asciidoctor';
-import { UnsupportedNode, type Template } from '../types';
-import { addOnceToAstroFence } from '../utils/astroFence';
-import { Aexpr, aexpr, atag } from '../utils/asx';
+import { UnsupportedNode, type Template } from '../types.js';
+import { addOnceToAstroFence } from '../utils/astroFence.js';
+import { Aexpr, aexpr, atag } from '../utils/asx.js';
 
 export const convert: Template<Inline>['convert'] = (node: Inline, _opts?: any) => {
   if (node.getType() === 'icon' && node.getDocument().getAttribute('icons') === 'font') {

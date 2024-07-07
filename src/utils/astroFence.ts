@@ -1,5 +1,5 @@
 import type { AbstractNode } from 'asciidoctor';
-import { decodeSpecialChars } from './string';
+import { decodeSpecialChars } from './string.js';
 
 export function addOnceToAstroFence(node: AbstractNode, fencedLines: string) {
   const document = node.getDocument();

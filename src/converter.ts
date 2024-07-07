@@ -1,6 +1,6 @@
 import type { AbstractNode, Asciidoctor, Html5Converter } from 'asciidoctor';
-import { UnsupportedNode, type Template } from './types';
-import { builtinTemplates } from './templates';
+import { UnsupportedNode, type Template } from './types.js';
+import { builtinTemplates } from './templates/index.js';
 
 class Converter {
   baseConverter: Html5Converter;
