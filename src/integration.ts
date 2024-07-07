@@ -1,12 +1,9 @@
 import type { Asciidoctor, ProcessorOptions } from 'asciidoctor';
 import asciidoctor from 'asciidoctor';
 import type { AstroIntegration } from 'astro';
+import { type CompileAstroResult } from 'astro/dist/vite-plugin-astro/compile.js';
 import { register as converterRegisterHandle } from './converter.js';
 import { register as postprocessorLayoutRegisterHandle } from './extensions/postprocessorLayout.js';
-import {
-  compileAstro,
-  type CompileAstroResult,
-} from '@node_modules/astro/dist/vite-plugin-astro/compile.js';
 import subSpecialchars from './patches/sub_specialchars.js';
 import type { AdocOptions, AstroAdocxOptions } from './types.js';
 import { getOutline } from './utils/outline.js';
@@ -61,6 +58,8 @@ export function adocx(
         addPageExtension,
         logger,
       }) {
+        const { compileAstro } = await import('astro/dist/vite-plugin-astro/compile.js');
+
         addPageExtension(adocxExtension);
 
         const asciidoctorEngine = asciidoctor();
