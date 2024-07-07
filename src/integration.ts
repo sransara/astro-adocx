@@ -6,7 +6,7 @@ import { register as postprocessorLayoutRegisterHandle } from './extensions/post
 import {
   compileAstro,
   type CompileAstroResult,
-} from 'astro/dist/vite-plugin-astro/compile.js';
+} from 'node_modules/astro/dist/vite-plugin-astro/compile.js';
 import subSpecialchars from './patches/sub_specialchars.js';
 import type { AdocOptions, AstroAdocxOptions } from './types.js';
 import { getOutline } from './utils/outline.js';
