@@ -15,13 +15,9 @@
   },
   "scripts":{
     "compile-rb": "node ./scripts/compile-rb.js ./src/patches/",
-    "build": "npm run compile-rb && tsc"
+    "build": "npm run compile-rb && tsc",
+    "publish": "node ./scripts/publish.js"
   },
-  "files": [
-    "dist",
-    "LICENSE",
-    "README.md"
-  ],
   "dependencies": {
   },
   "devDependencies": {
