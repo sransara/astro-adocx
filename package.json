@@ -16,6 +16,11 @@
     "compile-rb": "node ./scripts/compile-rb.js ./src/patches/",
     "build": "npm run compile-rb && tsc"
   },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
   "dependencies": {
   },
   "devDependencies": {
