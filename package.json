@@ -30,5 +30,8 @@
     "asciidoctor": "^3.0.4",
     "astro": "^4.10.2",
     "vite": "5.3.1"
+  },
+  "dependencies": {
+    "app-root-path": "^3.1.0"
   }
 }
