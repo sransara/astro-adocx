@@ -59,7 +59,7 @@ export function adocx(
         addPageExtension,
         logger,
       }) {
-        const { compileAstro } = await import(appRoot.resolve("astro/dist/vite-plugin-astro/compile.js"));
+        const { compileAstro } = await import(appRoot.resolve("node_modules/astro/dist/vite-plugin-astro/compile.js"));
 
         addPageExtension(adocxExtension);
 
