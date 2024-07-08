@@ -1,6 +1,6 @@
 {
   "name": "@sransara/astro-adocx",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "type": "module",
   "description": "Astro integration for Asciidoctor",
   "repository": {
@@ -13,23 +13,28 @@
     "email": "hi@sransara.com",
     "url": "https://sransara.com"
   },
+  "exports": {
+    "./*": "./dist/*"
+  },
   "scripts": {
-    "build": "node ./scripts/build.js",
-    "tsc": "tsc"
+    "compile-rb": "node ./scripts/compile-rb.js ./src/patches",
+    "build": "npm run compile-rb && tsc",
+    "clean": "rm -rf dist"
   },
   "devDependencies": {
+    "@types/node": "^20.14.10",
     "asciidoctor": "^3.0.4",
     "astro": "^4.10.2",
     "opal-compiler": "^3.0.0",
     "prettier": "^3.3.2",
     "prettier-plugin-organize-imports": "^3.2.4",
     "typescript": "^5.5.3",
-    "vite": "5.3.1"
+    "vite": "^5.3.1"
   },
   "peerDependencies": {
     "asciidoctor": "^3.0.4",
     "astro": "^4.10.2",
-    "vite": "5.3.1"
+    "vite": "^5.3.1"
   },
   "dependencies": {
     "app-root-path": "^3.1.0"

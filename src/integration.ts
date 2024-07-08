@@ -1,3 +1,5 @@
+// import fs from 'node:fs';
+import appRoot from 'app-root-path';
 import type { Asciidoctor, ProcessorOptions } from 'asciidoctor';
 import asciidoctor from 'asciidoctor';
 import type { AstroIntegration } from 'astro';
@@ -8,7 +10,6 @@ import subSpecialchars from './patches/sub_specialchars.js';
 import type { AdocOptions, AstroAdocxOptions } from './types.js';
 import { getOutline } from './utils/outline.js';
 import { decodeSpecialChars } from './utils/string.js';
-import appRoot from 'app-root-path';
 
 const adocxExtension = '.adoc';
 
@@ -59,7 +60,11 @@ export function adocx(
         addPageExtension,
         logger,
       }) {
-        const { compileAstro } = await import(appRoot.resolve("node_modules/astro/dist/vite-plugin-astro/compile.js"));
+        // astro/dist/vite-plugin-astro is not exported by the astro package,
+        // so try to workaround by dynamically importing file through node_modules
+        const { compileAstro } = await import(
+          /* @vite-ignore */ appRoot.resolve('node_modules/astro/dist/vite-plugin-astro/compile.js')
+        );
 
         addPageExtension(adocxExtension);
 

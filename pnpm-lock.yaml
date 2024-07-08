@@ -12,12 +12,15 @@ importers:
         specifier: ^3.1.0
         version: 3.1.0
     devDependencies:
+      '@types/node':
+        specifier: ^20.14.10
+        version: 20.14.10
       asciidoctor:
         specifier: ^3.0.4
         version: 3.0.4(chokidar@3.6.0)
       astro:
         specifier: ^4.10.2
-        version: 4.11.5(typescript@5.5.3)
+        version: 4.11.5(@types/node@20.14.10)(typescript@5.5.3)
       opal-compiler:
         specifier: ^3.0.0
         version: 3.0.0
@@ -31,8 +34,8 @@ importers:
         specifier: ^5.5.3
         version: 5.5.3
       vite:
-        specifier: 5.3.1
-        version: 5.3.1
+        specifier: ^5.3.1
+        version: 5.3.3(@types/node@20.14.10)
 
 packages:
 
@@ -578,6 +581,9 @@ packages:
 
   '@types/nlcst@2.0.3':
     resolution: {integrity: sha512-vSYNSDe6Ix3q+6Z7ri9lyWqgGhJTmzRjZRqyq15N0Z/1/UnVsno9G/N40NBijoYx2seFDIl0+B2mgAb9mezUCA==, tarball: https://registry.npmjs.org/@types/nlcst/-/nlcst-2.0.3.tgz}
+
+  '@types/node@20.14.10':
+    resolution: {integrity: sha512-MdiXf+nDuMvY0gJKxyfZ7/6UFsETO7mGKF54MVD/ekJS6HdFtpZFBgrh6Pseu64XTb2MLyFPlbW6hj8HYRQNOQ==, tarball: https://registry.npmjs.org/@types/node/-/node-20.14.10.tgz}
 
   '@types/unist@3.0.2':
     resolution: {integrity: sha512-dqId9J8K/vGi5Zr7oo212BGii5m3q5Hxlkwy3WpYuKPklmBEvsbMYYyLxAQpSffdLl/gdW0XUpKWFvYmyoWCoQ==, tarball: https://registry.npmjs.org/@types/unist/-/unist-3.0.2.tgz}
@@ -1849,6 +1855,9 @@ packages:
     engines: {node: '>=0.8.0'}
     hasBin: true
 
+  undici-types@5.26.5:
+    resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==, tarball: https://registry.npmjs.org/undici-types/-/undici-types-5.26.5.tgz}
+
   unified@11.0.5:
     resolution: {integrity: sha512-xKvGhPWw3k84Qjh8bI3ZeJjqnyadK+GEFtazSfZv/rKeTkTjOJho6mFqh2SM96iIcZokxiOpg78GazTSg8+KHA==, tarball: https://registry.npmjs.org/unified/-/unified-11.0.5.tgz}
 
@@ -1897,34 +1906,6 @@ packages:
 
   vfile@6.0.1:
     resolution: {integrity: sha512-1bYqc7pt6NIADBJ98UiG0Bn/CHIVOoZ/IyEkqIruLg0mE1BKzkOXY2D6CSqQIcKqgadppE5lrxgWXJmXd7zZJw==, tarball: https://registry.npmjs.org/vfile/-/vfile-6.0.1.tgz}
-
-  vite@5.3.1:
-    resolution: {integrity: sha512-XBmSKRLXLxiaPYamLv3/hnP/KXDai1NDexN0FpkTaZXTfycHvkRHoenpgl/fvuK/kPbB6xAgoyiryAhQNxYmAQ==, tarball: https://registry.npmjs.org/vite/-/vite-5.3.1.tgz}
-    engines: {node: ^18.0.0 || >=20.0.0}
-    hasBin: true
-    peerDependencies:
-      '@types/node': ^18.0.0 || >=20.0.0
-      less: '*'
-      lightningcss: ^1.21.0
-      sass: '*'
-      stylus: '*'
-      sugarss: '*'
-      terser: ^5.4.0
-    peerDependenciesMeta:
-      '@types/node':
-        optional: true
-      less:
-        optional: true
-      lightningcss:
-        optional: true
-      sass:
-        optional: true
-      stylus:
-        optional: true
-      sugarss:
-        optional: true
-      terser:
-        optional: true
 
   vite@5.3.3:
     resolution: {integrity: sha512-NPQdeCU0Dv2z5fu+ULotpuq5yfCS1BzKUIPhNbP3YBfAMGJXbt2nS+sbTFu+qchaqWTD+H3JK++nRwr6XIcp6A==, tarball: https://registry.npmjs.org/vite/-/vite-5.3.3.tgz}
@@ -2529,6 +2510,10 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.2
 
+  '@types/node@20.14.10':
+    dependencies:
+      undici-types: 5.26.5
+
   '@types/unist@3.0.2': {}
 
   '@ungap/structured-clone@1.2.0': {}
@@ -2591,7 +2576,7 @@ snapshots:
 
   assert-never@1.2.1: {}
 
-  astro@4.11.5(typescript@5.5.3):
+  astro@4.11.5(@types/node@20.14.10)(typescript@5.5.3):
     dependencies:
       '@astrojs/compiler': 2.8.1
       '@astrojs/internal-helpers': 0.4.1
@@ -2649,8 +2634,8 @@ snapshots:
       tsconfck: 3.1.1(typescript@5.5.3)
       unist-util-visit: 5.0.0
       vfile: 6.0.1
-      vite: 5.3.3
-      vitefu: 0.2.5(vite@5.3.3)
+      vite: 5.3.3(@types/node@20.14.10)
+      vitefu: 0.2.5(vite@5.3.3(@types/node@20.14.10))
       which-pm: 2.2.0
       yargs-parser: 21.1.1
       zod: 3.23.8
@@ -4144,6 +4129,8 @@ snapshots:
   uglify-js@3.18.0:
     optional: true
 
+  undici-types@5.26.5: {}
+
   unified@11.0.5:
     dependencies:
       '@types/unist': 3.0.2
@@ -4220,25 +4207,18 @@ snapshots:
       unist-util-stringify-position: 4.0.0
       vfile-message: 4.0.2
 
-  vite@5.3.1:
+  vite@5.3.3(@types/node@20.14.10):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.39
       rollup: 4.18.0
     optionalDependencies:
+      '@types/node': 20.14.10
       fsevents: 2.3.3
 
-  vite@5.3.3:
-    dependencies:
-      esbuild: 0.21.5
-      postcss: 8.4.39
-      rollup: 4.18.0
+  vitefu@0.2.5(vite@5.3.3(@types/node@20.14.10)):
     optionalDependencies:
-      fsevents: 2.3.3
-
-  vitefu@0.2.5(vite@5.3.3):
-    optionalDependencies:
-      vite: 5.3.3
+      vite: 5.3.3(@types/node@20.14.10)
 
   void-elements@3.1.0: {}
 
