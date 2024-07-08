@@ -8,7 +8,7 @@ import subSpecialchars from './patches/sub_specialchars.js';
 import type { AdocOptions, AstroAdocxOptions } from './types.js';
 import { getOutline } from './utils/outline.js';
 import { decodeSpecialChars } from './utils/string.js';
-import { path as appRootPath } from 'app-root-path';
+import appRoot from 'app-root-path';
 
 const adocxExtension = '.adoc';
 
@@ -59,7 +59,7 @@ export function adocx(
         addPageExtension,
         logger,
       }) {
-        const { compileAstro } = await import(`${appRootPath}/astro/dist/vite-plugin-astro/compile.js`);
+        const { compileAstro } = await import(appRoot.resolve("astro/dist/vite-plugin-astro/compile.js"));
 
         addPageExtension(adocxExtension);
 
