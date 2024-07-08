@@ -1,6 +1,6 @@
 {
   "name": "@sransara/astro-adocx",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "type": "module",
   "description": "Astro integration for Asciidoctor",
   "repository": {
@@ -14,8 +14,8 @@
     "url": "https://sransara.com"
   },
   "scripts": {
-    "compile-rb": "node ./scripts/compile-rb.js ./src/patches/",
-    "build": "npm run compile-rb && tsc"
+    "build": "node ./scripts/build.js",
+    "tsc": "tsc"
   },
   "devDependencies": {
     "asciidoctor": "^3.0.4",
