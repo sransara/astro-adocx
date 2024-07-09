@@ -24,5 +24,6 @@
     "declaration": true,
     "allowSyntheticDefaultImports": true
   },
-  "include": ["./src"]
+  "include": ["./src"],
+  "exclude": ["./examples"]
 }
