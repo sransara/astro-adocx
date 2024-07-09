@@ -1,5 +1,5 @@
 {
-  "name": "simple",
+  "name": "example",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -10,8 +10,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.11.5",
     "@astrojs/check": "^0.8.0",
+    "@astrojs/solid-js": "^4.4.0",
+    "@sransara/astro-adocx": "file:../..",
+    "astro": "^4.11.5",
     "typescript": "^5.5.3"
   }
 }
