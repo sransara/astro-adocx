@@ -1,44 +1,46 @@
 import type { AbstractNode, Asciidoctor, Html5Converter } from 'asciidoctor';
-import { UnsupportedNode, type Template } from './types.js';
-import { builtinTemplates } from './templates/index.js';
+import { builtinNodeConverters } from './nodeConverters/index.js';
+import { AstroAdocxOptions, UnsupportedNode, type AdocNodeConverters } from './types.js';
 
 class Converter {
   baseConverter: Html5Converter;
-  templates: Record<string, Template | undefined>;
+  nodeConverters: AdocNodeConverters;
   backendTraits = {
     supports_templates: false,
   };
 
-  constructor(asciidoctorEngine: Asciidoctor, templates: Record<string, Template>) {
+  constructor(asciidoctorEngine: Asciidoctor, nodeConverters: AdocNodeConverters) {
     this.baseConverter = asciidoctorEngine.Html5Converter.create();
-    this.templates = templates;
+    this.nodeConverters = nodeConverters;
   }
 
   convert(node: AbstractNode, transform?: string, opts?: any) {
     const nodeName = transform ?? node.getNodeName();
     // console.log(`Processing ${nodeName}`);
-    const template = this.templates[nodeName];
-    if (template !== undefined) {
-      // console.log(`Found template ${nodeName}`);
-      const converted = template.convert(node, opts);
+    const nodeConverter = this.nodeConverters[nodeName];
+    if (nodeConverter !== undefined) {
+      // console.log(`Found node conveter ${nodeName}`);
+      // @ts-expect-error: nodeName selector should correctly pick the correct node type
+      const converted = nodeConverter.convert(node, opts);
       if (converted !== UnsupportedNode) {
         return converted;
       }
     }
-    const builtinTemplate = builtinTemplates[nodeName];
-    if (builtinTemplate !== undefined) {
-      // console.log(`Found builtin template ${nodeName}`);
-      const converted = builtinTemplate.convert(node, opts);
+    const builtinNodeConverter = builtinNodeConverters[nodeName];
+    if (builtinNodeConverter !== undefined) {
+      // console.log(`Found builtin node converter ${nodeName}`);
+      // @ts-expect-error: nodeName selector should correctly pick the correct node type
+      const converted = builtinNodeConverter.convert(node, opts);
       if (converted !== UnsupportedNode) {
         return converted;
       }
     }
-    // console.log(`No template found for ${nodeName}`);
+    // console.log(`Using default backend converter for ${nodeName}`);
     return this.baseConverter.convert(node, transform, opts);
   }
 }
 
-export const register = (asciidoctorEngine: Asciidoctor, templates: Record<string, Template>) => {
-  const converter = new Converter(asciidoctorEngine, templates);
+export const register = (asciidoctorEngine: Asciidoctor, adocxConfig: AstroAdocxOptions) => {
+  const converter = new Converter(asciidoctorEngine, adocxConfig.nodeConverters ?? {});
   asciidoctorEngine.ConverterFactory.register(converter, ['html5']);
 };

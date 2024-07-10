@@ -10,16 +10,19 @@ importers:
     dependencies:
       '@astrojs/check':
         specifier: ^0.8.0
-        version: 0.8.0(typescript@5.5.3)
+        version: 0.8.1(typescript@5.5.3)
       '@astrojs/solid-js':
         specifier: ^4.4.0
         version: 4.4.0(solid-js@1.8.18)(vite@5.3.3)
       '@sransara/astro-adocx':
-        specifier: file:../..
-        version: file:../..(asciidoctor@3.0.4(chokidar@3.6.0))(astro@4.11.5(typescript@5.5.3))(vite@5.3.3)
+        specifier: file:../
+        version: file:..(asciidoctor@3.0.4(chokidar@3.6.0))(astro@4.11.5(typescript@5.5.3))(vite@5.3.3)
       astro:
         specifier: ^4.11.5
         version: 4.11.5(typescript@5.5.3)
+      solid-js:
+        specifier: ^1.8.18
+        version: 1.8.18
       typescript:
         specifier: ^5.5.3
         version: 5.5.3
@@ -45,20 +48,20 @@ packages:
     resolution: {integrity: sha512-iW7ACahOG0zZft4A/4CqDcc7JX+fWRNjV5tFAVkNCzwZD+EnFolPaUOPYt8jzadc0+Bgd80cQTtRMQnaaV1kkg==, tarball: https://registry.npmjs.org/@asciidoctor/opal-runtime/-/opal-runtime-3.0.1.tgz}
     engines: {node: '>=16'}
 
-  '@astrojs/check@0.8.0':
-    resolution: {integrity: sha512-2nh0Trn0yzMl3VVoPmDliFsgdApcbyspmbRV9chPuOYCHr7LZsapEGLHsLn5b2OMpydqRO38UpuvnzVPqtabHw==, tarball: https://registry.npmjs.org/@astrojs/check/-/check-0.8.0.tgz}
+  '@astrojs/check@0.8.1':
+    resolution: {integrity: sha512-QTzCuiBWll3SLSe7OsWtWyZRbwChXwxM4Y0Jb84jdPOdYobzHad9ubU7V23qmK3Y0BNwgzCbEP5C5FPVitb31Q==, tarball: https://registry.npmjs.org/@astrojs/check/-/check-0.8.1.tgz}
     hasBin: true
     peerDependencies:
       typescript: ^5.0.0
 
-  '@astrojs/compiler@2.8.1':
-    resolution: {integrity: sha512-NGfPAgU/9rvDEwsXu82RI1AxiivaxtEYBK9saW1f+2fTHUUqCJQ27HYtb2akG2QxCmFikgZ9zk26BEWgiHho1Q==, tarball: https://registry.npmjs.org/@astrojs/compiler/-/compiler-2.8.1.tgz}
+  '@astrojs/compiler@2.8.2':
+    resolution: {integrity: sha512-2v2N2oDnMH6+CX1Wn6f45Afa4tdkUMutdx8pJaokfaOYnAU+u6+UK7o7sXqydKro1cLwVmmOIJv6AqiXnAdLDA==, tarball: https://registry.npmjs.org/@astrojs/compiler/-/compiler-2.8.2.tgz}
 
   '@astrojs/internal-helpers@0.4.1':
     resolution: {integrity: sha512-bMf9jFihO8YP940uD70SI/RDzIhUHJAolWVcO1v5PUivxGKvfLZTLTVVxEYzGYyPsA3ivdLNqMnL5VgmQySa+g==, tarball: https://registry.npmjs.org/@astrojs/internal-helpers/-/internal-helpers-0.4.1.tgz}
 
-  '@astrojs/language-server@2.11.0':
-    resolution: {integrity: sha512-GmhF4A2rDCFzk/U0k1ySa8d/p6binaQZQJwSmHsY4Q8aHi5urjkG9csm0ZevKMPJmIRewE4jgh3pwzMGa4e0eQ==, tarball: https://registry.npmjs.org/@astrojs/language-server/-/language-server-2.11.0.tgz}
+  '@astrojs/language-server@2.11.1':
+    resolution: {integrity: sha512-WSIBBUK9lSeVD4KhPiZk2u3wsXdj7WEYvYPPs8ZsgbSVIOzUJWAKVcITHiXmcXlzZB5ubK44YUN/Hq+f2GeMyQ==, tarball: https://registry.npmjs.org/@astrojs/language-server/-/language-server-2.11.1.tgz}
     hasBin: true
     peerDependencies:
       prettier: ^3.0.0
@@ -488,8 +491,8 @@ packages:
     resolution: {integrity: sha512-R8gLRTZeyp03ymzP/6Lil/28tGeGEzhx1q2k703KGWRAI1VdvPIXdG70VJc2pAMw3NA6JKL5hhFu1sJX0Mnn/A==, tarball: https://registry.npmjs.org/@jridgewell/set-array/-/set-array-1.2.1.tgz}
     engines: {node: '>=6.0.0'}
 
-  '@jridgewell/sourcemap-codec@1.4.15':
-    resolution: {integrity: sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==, tarball: https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.15.tgz}
+  '@jridgewell/sourcemap-codec@1.5.0':
+    resolution: {integrity: sha512-gv3ZRaISU3fjPAgNsriBRqGWQL6quFx04YMPW/zD8XMLsU32mhCCbfbO6KZFLjvYpCZ8zyDEgqsgf+PwPaM7GQ==, tarball: https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.5.0.tgz}
 
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==, tarball: https://registry.npmjs.org/@jridgewell/trace-mapping/-/trace-mapping-0.3.25.tgz}
@@ -589,8 +592,8 @@ packages:
   '@shikijs/core@1.10.3':
     resolution: {integrity: sha512-D45PMaBaeDHxww+EkcDQtDAtzv00Gcsp72ukBtaLSmqRvh0WgGMq3Al0rl1QQBZfuneO75NXMIzEZGFitThWbg==, tarball: https://registry.npmjs.org/@shikijs/core/-/core-1.10.3.tgz}
 
-  '@sransara/astro-adocx@file:../..':
-    resolution: {directory: ../.., type: directory}
+  '@sransara/astro-adocx@file:..':
+    resolution: {directory: .., type: directory}
     peerDependencies:
       asciidoctor: ^3.0.4
       astro: ^4.10.2
@@ -783,8 +786,8 @@ packages:
     resolution: {integrity: sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==, tarball: https://registry.npmjs.org/braces/-/braces-3.0.3.tgz}
     engines: {node: '>=8'}
 
-  browserslist@4.23.1:
-    resolution: {integrity: sha512-TUfofFo/KsK/bWZ9TWQ5O26tsWW4Uhmt8IYklbnUa70udB6P2wA7w7o4PY4muaEPBQaAX+CEnmmIA41NVHtPVw==, tarball: https://registry.npmjs.org/browserslist/-/browserslist-4.23.1.tgz}
+  browserslist@4.23.2:
+    resolution: {integrity: sha512-qkqSyistMYdxAcw+CzbZwlBy8AGmS/eEWs+sEV5TnLRGDOL+C5M2EnH6tlZyg0YoAxGJAFKh61En9BR941GnHA==, tarball: https://registry.npmjs.org/browserslist/-/browserslist-4.23.2.tgz}
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
 
@@ -796,8 +799,8 @@ packages:
     resolution: {integrity: sha512-xlx1yCK2Oc1APsPXDL2LdlNP6+uu8OCDdhOBSVT279M/S+y75O30C2VuD8T2ogdePBBl7PfPF4504tnLgX3zfw==, tarball: https://registry.npmjs.org/camelcase/-/camelcase-7.0.1.tgz}
     engines: {node: '>=14.16'}
 
-  caniuse-lite@1.0.30001640:
-    resolution: {integrity: sha512-lA4VMpW0PSUrFnkmVuEKBUovSWKhj7puyCg8StBChgu298N1AtuF1sKWEvfDuimSEDbhlb/KqPKC3fs1HbuQUA==, tarball: https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001640.tgz}
+  caniuse-lite@1.0.30001641:
+    resolution: {integrity: sha512-Phv5thgl67bHYo1TtMY/MurjkHhV4EDaCosezRXgZ8jzA/Ub+wjxAvbGvjoFENStinwi5kCyOYV3mi5tOGykwA==, tarball: https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001641.tgz}
 
   ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==, tarball: https://registry.npmjs.org/ccount/-/ccount-2.0.1.tgz}
@@ -968,8 +971,8 @@ packages:
     engines: {node: '>=0.10.0'}
     hasBin: true
 
-  electron-to-chromium@1.4.819:
-    resolution: {integrity: sha512-8RwI6gKUokbHWcN3iRij/qpvf/wCbIVY5slODi85werwqUQwpFXM+dvUBND93Qh7SB0pW3Hlq3/wZsqQ3M9Jaw==, tarball: https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.4.819.tgz}
+  electron-to-chromium@1.4.823:
+    resolution: {integrity: sha512-4h+oPeAiGQOHFyUJOqpoEcPj/xxlicxBzOErVeYVMMmAiXUXsGpsFd0QXBMaUUbnD8hhSfLf9uw+MlsoIA7j5w==, tarball: https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.4.823.tgz}
 
   emmet@2.4.7:
     resolution: {integrity: sha512-O5O5QNqtdlnQM2bmKHtJgyChcrFMgQuulI+WdiOw2NArzprUqqxUW6bgYtKvzKgrsYpuLWalOkdhNP+1jluhCA==, tarball: https://registry.npmjs.org/emmet/-/emmet-2.4.7.tgz}
@@ -2252,9 +2255,9 @@ snapshots:
       glob: 8.1.0
       unxhr: 1.2.0
 
-  '@astrojs/check@0.8.0(typescript@5.5.3)':
+  '@astrojs/check@0.8.1(typescript@5.5.3)':
     dependencies:
-      '@astrojs/language-server': 2.11.0(typescript@5.5.3)
+      '@astrojs/language-server': 2.11.1(typescript@5.5.3)
       chokidar: 3.6.0
       fast-glob: 3.3.2
       kleur: 4.1.5
@@ -2264,14 +2267,14 @@ snapshots:
       - prettier
       - prettier-plugin-astro
 
-  '@astrojs/compiler@2.8.1': {}
+  '@astrojs/compiler@2.8.2': {}
 
   '@astrojs/internal-helpers@0.4.1': {}
 
-  '@astrojs/language-server@2.11.0(typescript@5.5.3)':
+  '@astrojs/language-server@2.11.1(typescript@5.5.3)':
     dependencies:
-      '@astrojs/compiler': 2.8.1
-      '@jridgewell/sourcemap-codec': 1.4.15
+      '@astrojs/compiler': 2.8.2
+      '@jridgewell/sourcemap-codec': 1.5.0
       '@volar/kit': 2.4.0-alpha.15(typescript@5.5.3)
       '@volar/language-core': 2.4.0-alpha.15
       '@volar/language-server': 2.4.0-alpha.15
@@ -2380,7 +2383,7 @@ snapshots:
     dependencies:
       '@babel/compat-data': 7.24.7
       '@babel/helper-validator-option': 7.24.7
-      browserslist: 4.23.1
+      browserslist: 4.23.2
       lru-cache: 5.1.1
       semver: 6.3.1
 
@@ -2672,19 +2675,19 @@ snapshots:
   '@jridgewell/gen-mapping@0.3.5':
     dependencies:
       '@jridgewell/set-array': 1.2.1
-      '@jridgewell/sourcemap-codec': 1.4.15
+      '@jridgewell/sourcemap-codec': 1.5.0
       '@jridgewell/trace-mapping': 0.3.25
 
   '@jridgewell/resolve-uri@3.1.2': {}
 
   '@jridgewell/set-array@1.2.1': {}
 
-  '@jridgewell/sourcemap-codec@1.4.15': {}
+  '@jridgewell/sourcemap-codec@1.5.0': {}
 
   '@jridgewell/trace-mapping@0.3.25':
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
-      '@jridgewell/sourcemap-codec': 1.4.15
+      '@jridgewell/sourcemap-codec': 1.5.0
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
@@ -2750,7 +2753,7 @@ snapshots:
     dependencies:
       '@types/hast': 3.0.4
 
-  '@sransara/astro-adocx@file:../..(asciidoctor@3.0.4(chokidar@3.6.0))(astro@4.11.5(typescript@5.5.3))(vite@5.3.3)':
+  '@sransara/astro-adocx@file:..(asciidoctor@3.0.4(chokidar@3.6.0))(astro@4.11.5(typescript@5.5.3))(vite@5.3.3)':
     dependencies:
       app-root-path: 3.1.0
       asciidoctor: 3.0.4(chokidar@3.6.0)
@@ -2920,7 +2923,7 @@ snapshots:
 
   astro@4.11.5(typescript@5.5.3):
     dependencies:
-      '@astrojs/compiler': 2.8.1
+      '@astrojs/compiler': 2.8.2
       '@astrojs/internal-helpers': 0.4.1
       '@astrojs/markdown-remark': 5.1.1
       '@astrojs/telemetry': 3.1.0
@@ -3051,12 +3054,12 @@ snapshots:
     dependencies:
       fill-range: 7.1.1
 
-  browserslist@4.23.1:
+  browserslist@4.23.2:
     dependencies:
-      caniuse-lite: 1.0.30001640
-      electron-to-chromium: 1.4.819
+      caniuse-lite: 1.0.30001641
+      electron-to-chromium: 1.4.823
       node-releases: 2.0.14
-      update-browserslist-db: 1.1.0(browserslist@4.23.1)
+      update-browserslist-db: 1.1.0(browserslist@4.23.2)
 
   call-bind@1.0.7:
     dependencies:
@@ -3068,7 +3071,7 @@ snapshots:
 
   camelcase@7.0.1: {}
 
-  caniuse-lite@1.0.30001640: {}
+  caniuse-lite@1.0.30001641: {}
 
   ccount@2.0.1: {}
 
@@ -3225,7 +3228,7 @@ snapshots:
     dependencies:
       jake: 10.9.1
 
-  electron-to-chromium@1.4.819: {}
+  electron-to-chromium@1.4.823: {}
 
   emmet@2.4.7:
     dependencies:
@@ -3655,7 +3658,7 @@ snapshots:
 
   magic-string@0.30.10:
     dependencies:
-      '@jridgewell/sourcemap-codec': 1.4.15
+      '@jridgewell/sourcemap-codec': 1.5.0
 
   markdown-table@3.0.3: {}
 
@@ -4580,9 +4583,9 @@ snapshots:
 
   unxhr@1.2.0: {}
 
-  update-browserslist-db@1.1.0(browserslist@4.23.1):
+  update-browserslist-db@1.1.0(browserslist@4.23.2):
     dependencies:
-      browserslist: 4.23.1
+      browserslist: 4.23.2
       escalade: 3.1.2
       picocolors: 1.0.1
 

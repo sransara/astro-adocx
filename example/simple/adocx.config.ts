@@ -1,14 +1,15 @@
 import path from 'node:path';
 import type { Block } from 'asciidoctor';
+// @ts-expect-error: missing type definitions for asciidoctor-kroki
 import { register as krokiPluginRegisterHandle } from 'asciidoctor-kroki';
-import type { AdocOptions, AstroAdocxOptions, Template } from '@sransara/astro-adocx/types.js';
+import type { AdocOptions, AstroAdocxOptions, Template } from '@sransara/astro-adocx/types';
 
-const templates = {
+const templates: Record<string, Template> = {
   'paragraph': {
-    convert: (node, opts) => {
+    convert: (node: Block, opts: any) => {
       return `<p>${node.getContent()}</p>`;
-    }
-  } as Template<Block>,
+    },
+  },
 };
 
 const astroFenced = `
@@ -36,6 +37,6 @@ export const asciidoctorConfig = {
     'kroki-fetch-diagram': true,
     'kroki-default-format': 'png',
     // Default layout for adoc files: attribute is used by astro-adocx/src/extensions/postprocessorLayout.ts
-    'astro-layout-path': '@/src/layouts/adocLayout/AdocLayout.astro',
+    'astro-layout-path': '@/src/layouts/adocLayout/AdocLayout.astro', // `@/` is defined as a path alias in tsconfig.json
   },
 } satisfies AdocOptions;

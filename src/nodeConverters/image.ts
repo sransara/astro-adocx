@@ -2,11 +2,11 @@
 // - https://github.com/asciidoctor/asciidoctor-backends/blob/master/erb/html5/block_image.html.erb
 
 import type { Block, Inline } from 'asciidoctor';
-import { UnsupportedNode, type Template } from '../types.js';
+import { type AdocNodeConverter, UnsupportedNode } from '../types.js';
 import { atag } from '../utils/asx.js';
 import { convertImageNode } from './inline_image.js';
 
-export const convert: Template<Block>['convert'] = (node: Block, opts?: any) => {
+export const convert: AdocNodeConverter<Block> = (node: Block, opts?: any) => {
   const target = node.getAttribute('target');
   if (!target) {
     throw new Error('Missing target');
@@ -35,3 +35,5 @@ export const convert: Template<Block>['convert'] = (node: Block, opts?: any) => 
     ],
   });
 };
+
+export default convert;

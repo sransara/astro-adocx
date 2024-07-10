@@ -14,7 +14,7 @@
     "url": "https://sransara.com"
   },
   "exports": {
-    "./*": "./dist/*"
+    "./*": "./dist/*.js"
   },
   "scripts": {
     "compile-rb": "node ./scripts/compile-rb.js ./src/patches",

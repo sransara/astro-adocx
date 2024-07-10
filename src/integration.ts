@@ -5,7 +5,7 @@ import asciidoctor from 'asciidoctor';
 import type { AstroIntegration } from 'astro';
 import { type CompileAstroResult } from 'astro/dist/vite-plugin-astro/compile.js';
 import { register as converterRegisterHandle } from './converter.js';
-import { register as postprocessorLayoutRegisterHandle } from './extensions/postprocessorLayout.js';
+import { register as postprocessorLayoutRegisterHandle } from './extensions/postprocessorAstroLayout.js';
 import subSpecialchars from './patches/sub_specialchars.js';
 import type { AdocOptions, AstroAdocxOptions } from './types.js';
 import { getOutline } from './utils/outline.js';
@@ -70,7 +70,7 @@ export function adocx(
 
         const asciidoctorEngine = asciidoctor();
         subSpecialchars.patch();
-        converterRegisterHandle(asciidoctorEngine, adocxConfig.templates ?? {});
+        converterRegisterHandle(asciidoctorEngine, adocxConfig);
         postprocessorLayoutRegisterHandle(asciidoctorEngine.Extensions);
         adocxConfig.withAsciidocEngine?.(asciidoctorEngine);
 
