@@ -1,6 +1,6 @@
 {
   "name": "@sransara/astro-adocx",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "type": "module",
   "description": "Astro integration for Asciidoctor",
   "repository": {
