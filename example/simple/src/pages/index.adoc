@@ -2,14 +2,15 @@
 import { Counter } from './_counter.tsx';
 ---
 = Hello world
+:astro-layout: basic
 
-.Power of Astro templating in AsciiDoc
+.Power of Astro templating in Asciidoc
 image:_astro.svg[]
 
-== Just a normal AsciiDoc file
+== Just a normal Asciidoc file
 
-This is a normal AsciiDoc file with access to the full power of Astro templating using
-https://docs.asciidoctor.org/asciidoc/latest/pass/[AsciiDoc's passthrough] feature.
+This is a normal Asciidoc file with access to the full power of Astro templating using
+https://docs.asciidoctor.org/asciidoc/latest/pass/[Asciidoc's passthrough] feature.
 
 1. Yes
 2. It
@@ -46,8 +47,8 @@ And that's it. Counter might as well have been a normal Astro component.
 Unlike MDX, angle brackets (<) and curly braces ({) are escaped, so you can use them freely in your text.
 
 
-If you want to use them raw, use AsciiDoc pass through feature: +++{Astro.generator}+++
+If you want to use them raw, use Asciidoc pass through feature: +++{Astro.generator}+++
 
 ----
-If you want to use them raw, use AsciiDoc pass through feature: +++{Astro.generator}+++
+If you want to use them raw, use Asciidoc pass through feature: +++{Astro.generator}+++
 ----

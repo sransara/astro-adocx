@@ -17,6 +17,10 @@ export type AstroAdocxOptions = {
   withAsciidocEngine?: (asciidoctorEngine: Asciidoctor) => void;
   withDocument?: (filePath: string, document: AdocDocument) => void;
   nodeConverters?: AdocNodeConverters;
+  astroLayouts?: Record<string, {
+    path: string;
+    args?: string;
+  }>;
 };
 
 export interface AdocOptions extends ProcessorOptions {

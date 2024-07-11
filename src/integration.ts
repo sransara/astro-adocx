@@ -71,7 +71,7 @@ export function adocx(
         const asciidoctorEngine = asciidoctor();
         subSpecialchars.patch();
         converterRegisterHandle(asciidoctorEngine, adocxConfig);
-        postprocessorLayoutRegisterHandle(asciidoctorEngine.Extensions);
+        postprocessorLayoutRegisterHandle(asciidoctorEngine.Extensions, adocxConfig);
         adocxConfig.withAsciidocEngine?.(asciidoctorEngine);
 
         // Default asciidoctor config that makes sense in this context
