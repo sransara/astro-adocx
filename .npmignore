@@ -2,3 +2,4 @@ node_modules/
 prettier.config.js
 tsconfig.json
 example/
+assets/
