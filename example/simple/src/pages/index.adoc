@@ -1,0 +1,53 @@
+---
+import { Counter } from './_counter.tsx';
+---
+= Hello world
+
+.Power of Astro templating in AsciiDoc
+image:_astro.svg[]
+
+== Just a normal AsciiDoc file
+
+This is a normal AsciiDoc file with access to the full power of Astro templating using
+https://docs.asciidoctor.org/asciidoc/latest/pass/[AsciiDoc's passthrough] feature.
+
+1. Yes
+2. It
+3. Is
+
+== Astro Island
+
+With a reactive client side component inside it (Using Astro's SolidJS integration):
+
+----
+---
+// imports are added at the top of the adoc file,
+// just like a normal Astro file
+import { Counter } from './_counter.tsx';
+---
+----
+
+----
+++++
+<Counter init={5} client:load />
+++++
+----
+
+++++
+<Counter init={5} client:load />
+++++
+
+
+
+And that's it. Counter might as well have been a normal Astro component.
+
+== Unlike MDx
+
+Unlike MDX, angle brackets (<) and curly braces ({) are escaped, so you can use them freely in your text.
+
+
+If you want to use them raw, use AsciiDoc pass through feature: +++{Astro.generator}+++
+
+----
+If you want to use them raw, use AsciiDoc pass through feature: +++{Astro.generator}+++
+----

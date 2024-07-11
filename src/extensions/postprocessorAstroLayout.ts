@@ -23,6 +23,18 @@ function extension(this: Extensions.PostprocessorDsl) {
     addOnceToAstroFence(adoc, `import AstroLayout from '${layout}';`);
     let layoutArgs = (adoc.getAttribute('astro-layout-args') ?? '').trim();
     layoutArgs = decodeSpecialChars(layoutArgs);
+    if (!layoutArgs.includes('docattrs={docattrs}')) {
+      // docattrs is automatically defined in the integration
+      // it doesn't hurt to pass that to the layout automatically
+      // for example to add the doctitle in the layout with h1 tag
+      layoutArgs = `docattrs={docattrs} ${layoutArgs}`;
+    }
+    if (!layoutArgs.includes('outline={outline}')) {
+      // outline is automatically defined in the integration
+      // it doesn't hurt to pass that to the layout automatically
+      // for example to create a table of contents outside of the main article
+      layoutArgs = `outline={outline} ${layoutArgs}`;
+    }
     const layoutComponent = 'AstroLayout';
     const openTag = `<${layoutComponent} ${layoutArgs}>`;
     const closeTag = `</${layoutComponent}>`;

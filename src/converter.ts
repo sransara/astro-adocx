@@ -21,7 +21,7 @@ class Converter {
     if (nodeConverter !== undefined) {
       // console.log(`Found node conveter ${nodeName}`);
       // @ts-expect-error: nodeName selector should correctly pick the correct node type
-      const converted = nodeConverter.convert(node, opts);
+      const converted = nodeConverter(node, opts);
       if (converted !== UnsupportedNode) {
         return converted;
       }
@@ -30,7 +30,7 @@ class Converter {
     if (builtinNodeConverter !== undefined) {
       // console.log(`Found builtin node converter ${nodeName}`);
       // @ts-expect-error: nodeName selector should correctly pick the correct node type
-      const converted = builtinNodeConverter.convert(node, opts);
+      const converted = builtinNodeConverter(node, opts);
       if (converted !== UnsupportedNode) {
         return converted;
       }
