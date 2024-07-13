@@ -6,9 +6,9 @@ import type { AstroIntegration } from 'astro';
 import { type CompileAstroResult } from 'astro/dist/vite-plugin-astro/compile.js';
 import { register as postprocessorLayoutRegisterHandle } from '#src/extensions/postprocessorAstroLayout';
 import subSpecialchars from '#src/patches/sub_specialchars';
-import type { AdocOptions, AstroAdocxOptions } from '#src/types';
 import { getOutline } from '#src/utils/outline';
 import { decodeSpecialChars } from '#src/utils/string';
+import type { AdocOptions, AstroAdocxOptions } from '#src/config';
 
 const adocxExtension = '.adoc';
 
@@ -33,8 +33,8 @@ async function compileAdoc(
   const frontMatter = decodeSpecialChars(document.getAttribute('front-matter') ?? '');
 
   const astroComponent = `---
-export let docattrs = ${JSON.stringify(docattrs)};
-export let outline = ${JSON.stringify(outline)};
+let docattrs = ${JSON.stringify(docattrs)};
+let outline = ${JSON.stringify(outline)};
 ${adocxConfigAstroFenced.trim()}
 ${astroFenced.trim()}
 ${frontMatter.trim()}
@@ -74,14 +74,19 @@ export function adocx(
         // Tell Astro to handle .adoc files as page routes
         addPageExtension(adocxExtension);
 
-        const asciidoctorEngine = asciidoctor();
-        subSpecialchars.patch();
-
-        if (isRestart) {
-          // Opal.Asciidoctor implementation is a global object, on soft restarts the extensions are preserved
-          // so we need to unregister them to avoid duplicate extensions
+        // Opal.Asciidoctor implementation is a global object, and doesn't get reloaded on restarts
+        let asciidoctorEngine: Asciidoctor;
+        if (!isRestart) {
+          asciidoctorEngine = asciidoctor();
+          subSpecialchars.patch();
+        }
+        else {
+          // @ts-expect-error: Opal is a global object
+          asciidoctorEngine = Opal.Asciidoctor;
+          // on soft restarts the extensions are preserved, so we need to unregister them to avoid duplicate extensions
           asciidoctorEngine.Extensions.unregisterAll();
         }
+
         postprocessorLayoutRegisterHandle(asciidoctorEngine.Extensions, adocxConfig);
         await adocxConfig.withAsciidocEngine?.(asciidoctorEngine);
 
