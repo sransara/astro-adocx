@@ -15,8 +15,8 @@ importers:
         specifier: ^4.4.0
         version: 4.4.0(solid-js@1.8.18)(vite@5.3.3)
       '@sransara/astro-adocx':
-        specifier: ^0.0.15
-        version: 0.0.15(asciidoctor@3.0.4(chokidar@3.6.0))(astro@4.11.5(typescript@5.5.3))(vite@5.3.3)
+        specifier: ^0.0.16
+        version: 0.0.16(asciidoctor@3.0.4(chokidar@3.6.0))(astro@4.11.5(typescript@5.5.3))(vite@5.3.3)
       astro:
         specifier: ^4.11.5
         version: 4.11.5(typescript@5.5.3)
@@ -592,8 +592,8 @@ packages:
   '@shikijs/core@1.10.3':
     resolution: {integrity: sha512-D45PMaBaeDHxww+EkcDQtDAtzv00Gcsp72ukBtaLSmqRvh0WgGMq3Al0rl1QQBZfuneO75NXMIzEZGFitThWbg==, tarball: https://registry.npmjs.org/@shikijs/core/-/core-1.10.3.tgz}
 
-  '@sransara/astro-adocx@0.0.15':
-    resolution: {integrity: sha512-8MxJv1ZUj0o2/j6UG9zMA4OtgRNPLCXrvfhJuW1Qc9591yEzrGwosgw5ixxjqDeVlKYI2UWAlSkPnKMfVlWq5A==, tarball: https://registry.npmjs.org/@sransara/astro-adocx/-/astro-adocx-0.0.15.tgz}
+  '@sransara/astro-adocx@0.0.16':
+    resolution: {integrity: sha512-1Sqk0KJJ6JpaCa12gGxSoTUH8vic41DNy0cpKLKYR+DY8KwIcSQQ8o0yHeeADG1Yxdtyuq/IMieTUfbzQxjJ/w==, tarball: https://registry.npmjs.org/@sransara/astro-adocx/-/astro-adocx-0.0.16.tgz}
     peerDependencies:
       asciidoctor: ^3.0.4
       astro: ^4.10.2
@@ -2753,7 +2753,7 @@ snapshots:
     dependencies:
       '@types/hast': 3.0.4
 
-  '@sransara/astro-adocx@0.0.15(asciidoctor@3.0.4(chokidar@3.6.0))(astro@4.11.5(typescript@5.5.3))(vite@5.3.3)':
+  '@sransara/astro-adocx@0.0.16(asciidoctor@3.0.4(chokidar@3.6.0))(astro@4.11.5(typescript@5.5.3))(vite@5.3.3)':
     dependencies:
       app-root-path: 3.1.0
       asciidoctor: 3.0.4(chokidar@3.6.0)
