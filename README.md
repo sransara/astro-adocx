@@ -70,16 +70,21 @@ It adds a Vite plugin that loads and transforms the `.adoc` files.
 
 ## TODO
 
-- Inline scripts and styles are not supported yet. Left out for now because, IMO it is better to use them through Astro components or by passing values to the layout.
+- Support Content Collections.
+- Add tests.
+- Add typing for importing `.adoc` files. (For hot reload need to reload the page once in browser because Astro has [hardcoded the file extensions](https://github.com/withastro/astro/blob/bc2e74de384776caa252fd47dbeda895c0488c11/packages/astro/src/core/config/settings.ts#L26))
+- Inline scripts and styles are not supported yet. Left out for now because,
+  IMO it is better to use them through Astro components or by passing values to the layout.
 - Node caches templates imported by the template engine.
   May be a move asciidoctor engine to a worker thread inspired by [astro-asciidoc](https://github.com/shishkin/astro-asciidoc).
   Left out for now because, IMO instead of using the default converter, a custom converter could be better since we have more control.
 
 ## Stability
 
-This plugin is in early development and may have breaking changes in the future.
+My main motivation is to use this in my personal site: https://github.com/sransara/com.sransara (https://sransara.com/)
 It is usable and tested with latest versions of Astro and Asciidoctor.
-My main motivation is to use it in: https://github.com/sransara/com.sransara (https://sransara.com/)
+`AdocOptions` and `AstroAdocxOptions` interfaces should stay mostly stable.
+Internals may change as we are keeping up with the Astro and Asciidoctor versions.
 
 ## Alternatives
 
