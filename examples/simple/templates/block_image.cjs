@@ -10,8 +10,6 @@
 const { atag } = require('@sransara/astro-adocx/utils/asx');
 const { convertImageNode } = require('./_helper_image.cjs');
 
-console.log('block_image.cjs');
-
 /**
  * Converts a block image node to HTML.
  * @param {Object} params - The parameters object.
