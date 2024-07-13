@@ -32,7 +32,11 @@ export const adocxConfig = {
   },
   watchFiles: [
     './adocx.config.ts',
-    // ...fg.sync('./templates/**/*', { onlyFiles: true }), TODO: node seems to caches the cjs module, will have to look into worker threads
+    /*
+    // TODO: node seems to cache the templates/*.cjs modules,
+    // will have to look into worker threads, or find some way to invalidate the node module cache
+    */
+    // ...fg.sync('./templates/*', { onlyFiles: true }),
   ],
 } satisfies AstroAdocxOptions;
 

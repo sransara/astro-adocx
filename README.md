@@ -65,8 +65,10 @@ It adds a Vite plugin that loads and transforms the `.adoc` files.
 
 ## TODO
 
-- Inline scripts and styles are not supported yet. IMO it is better to use them through Astro components or by passing values to the layout.
-- Move asciidoctor engine to a worker thread inspired by https://github.com/shishkin/astro-asciidoc (hopefully this solves node caching templates issue)
+- Inline scripts and styles are not supported yet. Left out for now because, IMO it is better to use them through Astro components or by passing values to the layout.
+- Node caches templates imported by the template engine.
+  May be a move asciidoctor engine to a worker thread inspired by [astro-asciidoc](https://github.com/shishkin/astro-asciidoc).
+  Left out for now because, IMO instead of using the default converter, a custom converter could be better since we have more control.
 
 ## Stability
 
@@ -76,4 +78,6 @@ My main motivation is to use it in: https://github.com/sransara/com.sransara (ht
 
 ## Alternatives
 
-1. https://github.com/shishkin/astro-asciidoc - At the moment doesn't support passthrough to Astro, but probably more stable.
+### https://github.com/shishkin/astro-asciidoc
+- At the moment doesn't support passthrough to Astro, but probably is much more stable.
+- And also doesn't pollute the global scope with Ruby/Opal objects because it uses worker threads.
