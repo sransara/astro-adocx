@@ -19,6 +19,11 @@ export const adocxConfig = {
     // document is the asciidoctor.js document object
     // you can for example modify document attributes to be relative to current adoc file here
   },
+  async withConvertedDocument(filePath, astroTemplate) {
+    // to do any modifications to the converted document
+    // must return the modified astro template
+    return astroTemplate;
+  },
   async withAstroComponent(filePath, astroComponent) {
     // to do any modifications to the final generated Astro component code
     // must return the modified Astro component code

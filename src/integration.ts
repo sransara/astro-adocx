@@ -22,7 +22,10 @@ async function compileAdoc(
   if (adocxConfig.withDocument) {
     await adocxConfig.withDocument(fileId, document);
   }
-  const converted = document.convert();
+  let converted = document.convert();
+  if (adocxConfig.withConvertedDocument) {
+    converted = await adocxConfig.withConvertedDocument(fileId, converted);
+  }
   const docattrs = document.getAttributes() as Record<string, string | undefined>;
   const outline = getOutline(document);
   // Astro component's fenced code declared in the config
@@ -32,7 +35,7 @@ async function compileAdoc(
   // Astro component's fenced code declared in the document itself
   const frontMatter = decodeSpecialChars(document.getAttribute('front-matter') ?? '');
 
-  const astroComponent = `---
+  let astroComponent = `---
 let docattrs = ${JSON.stringify(docattrs)};
 let outline = ${JSON.stringify(outline)};
 ${adocxConfigAstroFenced.trim()}
@@ -42,7 +45,7 @@ ${frontMatter.trim()}
 ${converted.trim()}
 `;
   if (adocxConfig.withAstroComponent) {
-    return await adocxConfig.withAstroComponent(fileId, astroComponent);
+    astroComponent = await adocxConfig.withAstroComponent(fileId, astroComponent);
   }
   return astroComponent;
 }

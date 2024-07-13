@@ -25,6 +25,15 @@ export type AstroAdocxOptions = {
    */
   withDocument?: (filePath: string, document: AdocDocument) => Promise<void>;
   /**
+   * Hook to do any modifications to the converted asciidoc document.
+   * Converted asciidoc document is not necessarily HTML because it can have Astro components like <Image>.
+   * Return the modified Astro template.
+   *
+   * @param filePath Path of the adoc file
+   * @param astroTemplate Generated Astro template by converting the adoc file (does not include the Astro fence)
+   */
+  withConvertedDocument?: (filePath: string, astroTemplate: string) => Promise<string>;
+  /**
    * Hook to do any modifications to the final generated Astro component code.
    * Return the modified Astro component code.
    *
