@@ -1,6 +1,6 @@
 import type { Document as AdocDocument, Extensions } from 'asciidoctor';
-
-import { type AstroAdocxOptions, isExtensionSingleton } from '#src/types';
+import { type AstroAdocxOptions } from '#src/config';
+import { isExtensionRegistrySingleton } from '#src/utils/extension';
 import { addOnceToAstroFence } from '#src/utils/astroFence';
 import { decodeSpecialChars } from '#src/utils/string';
 
@@ -8,7 +8,7 @@ export function register(
   registry: typeof Extensions | Extensions.Registry,
   adocxConfig: AstroAdocxOptions,
 ) {
-  if (isExtensionSingleton(registry)) {
+  if (isExtensionRegistrySingleton(registry)) {
     registry.register(function () {
       this.postprocessor(extension(adocxConfig));
     });

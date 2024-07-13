@@ -1,7 +1,6 @@
 import type {
   Document as AdocDocument,
   Asciidoctor,
-  Extensions,
   ProcessorOptions,
 } from 'asciidoctor';
 
@@ -56,8 +55,4 @@ export type AstroAdocxOptions = {
 export interface AdocOptions extends ProcessorOptions {
   // override attributes because asciidoctor types are wierd
   attributes?: Record<string, string | boolean>;
-}
-
-export function isExtensionSingleton(registry: any): registry is typeof Extensions {
-  return typeof registry.register === 'function';
 }

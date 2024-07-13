@@ -1,7 +1,7 @@
 import type {
   AdocOptions,
   AstroAdocxOptions,
-} from '@sransara/astro-adocx/types';
+} from '@sransara/astro-adocx/config';
 
 const astroFenced = `
 // This code block is automatically added to the generated Astro code
