@@ -1,6 +1,6 @@
 {
   "name": "@sransara/astro-adocx",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "Astro integration for Asciidoctor",
   "repository": {
@@ -50,5 +50,11 @@
   },
   "dependencies": {
     "app-root-path": "^3.1.0"
-  }
+  },
+  "keywords": [
+    "asciidoctor",
+    "withastro",
+    "astro-adocx",
+    "plugin"
+  ]
 }
