@@ -12,7 +12,7 @@
   "dependencies": {
     "@astrojs/check": "^0.8.0",
     "@astrojs/solid-js": "^4.4.0",
-    "@sransara/astro-adocx": "^0.1.1",
+    "@sransara/astro-adocx": "^0.1.2",
     "astro": "^4.11.5",
     "solid-js": "^1.8.18",
     "typescript": "^5.5.3"
