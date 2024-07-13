@@ -10,14 +10,19 @@ const astroFenced = `
 
 export const adocxConfig = {
   astroFenced,
-  withAsciidocEngine(asciidoctorEngine) {
+  async withAsciidocEngine(asciidoctorEngine) {
     // asciidoctorEngine is the asciidoctor.js engine
     // you can for example register extensions here
   },
-  withDocument(filePath, document) {
+  async withDocument(filePath, document) {
     // filePath is the path of the adoc file
     // document is the asciidoctor.js document object
     // you can for example modify document attributes to be relative to current adoc file here
+  },
+  async withAstroComponent(filePath, astroComponent) {
+    // to do any modifications to the final generated Astro component code
+    // must return the modified Astro component code
+    return astroComponent;
   },
   astroLayouts: {
     basic: { // add `:astro-layout: basic` in the document to use this layout
@@ -25,11 +30,16 @@ export const adocxConfig = {
       // args: something={something} // optionally pass args to the layout. docattrs are automatically passed
     },
   },
+  watchFiles: [
+    './adocx.config.ts',
+    // ...fg.sync('./templates/**/*', { onlyFiles: true }), TODO: node seems to caches the cjs module, will have to look into worker threads
+  ],
 } satisfies AstroAdocxOptions;
 
 export const asciidoctorConfig = {
+  template_dirs: ['./templates'], // to rewrite image templates to use Image component
   attributes: {
-    // sectnums: true
+    imagesdir: './', // to use relative paths for images, in Astro we need to use the Image component
     // any other asciidoctor attributes
   },
 } satisfies AdocOptions;

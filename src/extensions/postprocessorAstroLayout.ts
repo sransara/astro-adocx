@@ -1,8 +1,8 @@
 import type { Document as AdocDocument, Extensions } from 'asciidoctor';
 
-import { type AstroAdocxOptions, isExtensionSingleton } from '../types.js';
-import { addOnceToAstroFence } from '../utils/astroFence.js';
-import { decodeSpecialChars } from '../utils/string.js';
+import { type AstroAdocxOptions, isExtensionSingleton } from '#src/types';
+import { addOnceToAstroFence } from '#src/utils/astroFence';
+import { decodeSpecialChars } from '#src/utils/string';
 
 export function register(
   registry: typeof Extensions | Extensions.Registry,

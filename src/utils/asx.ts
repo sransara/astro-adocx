@@ -1,3 +1,10 @@
+/**
+ * This module provides a set of functions to create JSX-like strings.
+ * Custom solution like this is useful because we are producing JSX-like strings
+ * that can have expressions which are uncommon in HTML.
+ * - for example to generate a string like: `<img src={import("image.jpg")}>`
+ */
+
 type child = string | false | undefined;
 
 export interface Aprops {
@@ -36,13 +43,18 @@ export class Aexpr {
   }
 }
 
+/**
+ * Useful to pass an expression as a string.
+ * for example: `attr={aexpr('import("image.jpg")')}`
+ * will produce: `attr={image("import.jpg")}`
+ */
 export function aexpr(value: any) {
   return new Aexpr(value);
 }
 
 function childrenToString(children: child[]) {
   return (children ?? [])
-    .filter((child) => child !== false && child !== null)
+    .filter((child) => child !== false && child !== undefined && child !== null)
     .map((child: any): string => {
       if (Array.isArray(child)) return childrenToString(child);
       if (typeof child === 'object') return JSON.stringify(child);
@@ -51,6 +63,12 @@ function childrenToString(children: child[]) {
     .join('');
 }
 
+/**
+ * Create a JSX-like string.
+ * - false / undefined / null children are skipped
+ * - false / undefined / null attributes are skipped
+ * - expression strings need to be wrapped in aexpr
+ */
 export function atag(tag: string, props: Aprops) {
   let attrs = '';
   const { children = [], ...rest } = props;

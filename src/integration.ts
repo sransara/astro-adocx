@@ -4,11 +4,11 @@ import type { Asciidoctor, ProcessorOptions } from 'asciidoctor';
 import asciidoctor from 'asciidoctor';
 import type { AstroIntegration } from 'astro';
 import { type CompileAstroResult } from 'astro/dist/vite-plugin-astro/compile.js';
-import { register as postprocessorLayoutRegisterHandle } from './extensions/postprocessorAstroLayout.js';
-import subSpecialchars from './patches/sub_specialchars.js';
-import type { AdocOptions, AstroAdocxOptions } from './types.js';
-import { getOutline } from './utils/outline.js';
-import { decodeSpecialChars } from './utils/string.js';
+import { register as postprocessorLayoutRegisterHandle } from '#src/extensions/postprocessorAstroLayout';
+import subSpecialchars from '#src/patches/sub_specialchars';
+import type { AdocOptions, AstroAdocxOptions } from '#src/types';
+import { getOutline } from '#src/utils/outline';
+import { decodeSpecialChars } from '#src/utils/string';
 
 const adocxExtension = '.adoc';
 
@@ -19,8 +19,9 @@ async function compileAdoc(
   asciidoctorConfig: ProcessorOptions,
 ) {
   const document = asciidoctorEngine.loadFile(fileId, asciidoctorConfig);
-  adocxConfig.withDocument?.(fileId, document);
-
+  if (adocxConfig.withDocument) {
+    await adocxConfig.withDocument(fileId, document);
+  }
   const converted = document.convert();
   const docattrs = document.getAttributes() as Record<string, string | undefined>;
   const outline = getOutline(document);
@@ -40,6 +41,9 @@ ${frontMatter.trim()}
 ---
 ${converted.trim()}
 `;
+  if (adocxConfig.withAstroComponent) {
+    return await adocxConfig.withAstroComponent(fileId, astroComponent);
+  }
   return astroComponent;
 }
 
@@ -58,6 +62,8 @@ export function adocx(
         // @ts-expect-error: `addPageExtension` is part of the private api
         addPageExtension,
         logger,
+        addWatchFile,
+        isRestart
       }) {
         // astro/dist/vite-plugin-astro is not exported by the astro package,
         // so try to workaround by dynamically importing file through node_modules
@@ -65,12 +71,19 @@ export function adocx(
           /* @vite-ignore */ appRoot.resolve('node_modules/astro/dist/vite-plugin-astro/compile.js')
         );
 
+        // Tell Astro to handle .adoc files as page routes
         addPageExtension(adocxExtension);
 
         const asciidoctorEngine = asciidoctor();
         subSpecialchars.patch();
+
+        if (isRestart) {
+          // Opal.Asciidoctor implementation is a global object, on soft restarts the extensions are preserved
+          // so we need to unregister them to avoid duplicate extensions
+          asciidoctorEngine.Extensions.unregisterAll();
+        }
         postprocessorLayoutRegisterHandle(asciidoctorEngine.Extensions, adocxConfig);
-        adocxConfig.withAsciidocEngine?.(asciidoctorEngine);
+        await adocxConfig.withAsciidocEngine?.(asciidoctorEngine);
 
         // Default asciidoctor config that makes sense in this context
         asciidoctorConfig.standalone = false;
@@ -85,6 +98,10 @@ export function adocx(
         _compileAdoc = async (filename) => {
           return compileAdoc(asciidoctorEngine, filename, adocxConfig, asciidoctorConfig);
         };
+
+        adocxConfig.watchFiles?.forEach((file) => {
+          addWatchFile(new URL(file, astroConfig.root));
+        });
 
         updateConfig({
           vite: {
