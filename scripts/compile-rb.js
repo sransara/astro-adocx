@@ -1,5 +1,3 @@
-// @ts-nocheck: Script used only for building ruby code
-//
 // Run this script to compile all *.rb files to *.ts files in a directory:
 //   node ./scripts/compile-rb.js ./src/patches/
 

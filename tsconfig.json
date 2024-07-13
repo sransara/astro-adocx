@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "ESNext",
     "skipLibCheck": true,
     "paths": {
+      "#src/*": ["./src/*"],
     },
     /* Bundler mode */
     "moduleResolution": "node",
@@ -17,12 +17,12 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "types": ["vite/client"],
+    "allowSyntheticDefaultImports": true,
     /* Output */
-    "noEmit": false,
-    "outDir": "dist",
-    "rootDir": "src",
-    "declaration": true,
-    "allowSyntheticDefaultImports": true
+    "module": "ESNext",
+    "noEmit": true,
+    "rootDir": "src"
+
   },
   "include": ["./src"],
   "exclude": ["./examples"]
