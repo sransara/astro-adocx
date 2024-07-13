@@ -41,6 +41,11 @@ export default {
 }
 ```
 
+## Examples
+
+Examples are available in the `examples` directory.
+Live demo playgroun is [here](https://stackblitz.com/github/sransara/astro-adocx/tree/main/examples/simple?file=src%2Fpages%2Findex.adoc)
+
 ## Why not MDx?
 
 Markdown is great, but I like Asciidoctor, for it's support of cross references and counters.
